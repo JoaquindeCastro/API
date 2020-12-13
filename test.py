@@ -6,7 +6,7 @@ response = requests.get('https://joaquindecastro-api.herokuapp.com/quotes/')
 print(response.json())
 '''
 
-url = 'https://joaquindecastro-api.herokuapp.com/quotes/post'
+url = 'https://api.joaquindecastro.gq/quotes/post'
 
 for n in range(1, 100):
 	params = {
@@ -22,8 +22,9 @@ for n in range(1, 100):
 	    except:
 	         pass
 
-	data = {'quoteText': jsonText['quoteText'],'quoteAuthor':jsonText['quoteAuthor']}
+	data = {'text': jsonText['quoteText'],'author':jsonText['quoteAuthor']}
 
 	x = requests.post(url, data = data)
 
-	print(x)
+	print(data)
+
