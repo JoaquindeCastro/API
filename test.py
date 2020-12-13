@@ -1,4 +1,5 @@
 import requests
+import json
 '''
 response = requests.get('https://joaquindecastro-api.herokuapp.com/quotes/')
 
@@ -20,4 +21,9 @@ for n in range(1, 100):
 	    	jsonText = json.loads(response.text)
 	    except:
 	         pass
-	return jsonText
+
+	data = {'quoteText': jsonText['quoteText'],'quoteAuthor':jsonText['quoteAuthor']}
+
+	x = requests.post(url, data = data)
+
+	print(x)
