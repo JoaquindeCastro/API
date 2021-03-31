@@ -12,10 +12,6 @@ from .models import Fact, Question
 
 from django.conf import settings
 
-def send_trivia_email():
-	trivia = random.choice(Fact.objects.all())
-	send_mail(trivia.uid,trivia.content,settings.EMAIL_HOST,[settings.EMAIL_HOST])
-
 class RandomFactView(generics.RetrieveAPIView):
 
 	serializer_class = FactSerializer
@@ -65,7 +61,8 @@ class TriviaEmailView(APIView):
 		pwd = request.query_params.post('pwd', None)
 		if pwd == 'hjdgjwerifj49':
 			#category = request.query_params.post('cartegory', None)
-			send_trivia_email()
+			trivia = random.choice(Fact.objects.all())
+			send_mail(trivia.uid,trivia.content,settings.EMAIL_HOST,[settings.EMAIL_HOST])
 
 '''
 if 'uid' in serializer.data:
