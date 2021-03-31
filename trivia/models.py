@@ -11,8 +11,10 @@ def generate_unique_id():
 		else:
 			break
 
+	return code
+
 class Fact(models.Model):
-	uid = models.CharField(max_length=6, default=generate_unique_id)
+	uid = models.CharField(max_length=6, default=generate_unique_id, unique=True)
 	content = models.TextField()
 	category = models.CharField(max_length=63)
 	tags = models.CharField(max_length=128)
