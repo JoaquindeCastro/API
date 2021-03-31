@@ -67,7 +67,7 @@ class TriviaEmailView(APIView):
 			send_mail(trivia.uid,trivia.content,settings.EMAIL_HOST,[settings.EMAIL_HOST])
 			return HttpResponse('Email was sent successfully... I think...')
 		else:
-			return HttpResponseForbidden()
+			return HttpResponse('wrong pwd')
 
 '''
 if 'uid' in serializer.data:
