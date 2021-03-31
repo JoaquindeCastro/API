@@ -10,11 +10,11 @@ from rest_framework.response import Response
 from .serializers import FactSerializer, QuestionSerializer
 from .models import Fact, Question
 
-from django.conf.settings import EMAIL_HOST, EMAIL_PASSWORD
+from django.conf import settings
 
 def send_trivia_email():
 	trivia = random.choice(Fact.objects.all())
-	send_mail(trivia.uid,trivia.content,EMAIL_HOST,[EMAIL_HOST])
+	send_mail(trivia.uid,trivia.content,settings.EMAIL_HOST,[settings.EMAIL_HOST])
 
 class RandomFactView(generics.RetrieveAPIView):
 
