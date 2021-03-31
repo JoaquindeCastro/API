@@ -1,5 +1,7 @@
 import random
 
+from django.core.mail import send_mail
+
 from django.shortcuts import render
 from rest_framework import generics, status, viewsets
 from rest_framework.views import APIView
@@ -7,6 +9,12 @@ from rest_framework.response import Response
 
 from .serializers import FactSerializer, QuestionSerializer
 from .models import Fact, Question
+
+from django.settings import EMAIL_HOST, EMAIL_PASSWORD
+
+def send_trivia_email():
+	trivia = random.choice(Fact.objects.all())
+	send_mail(trivia.uid,trivia.content,EMAIL_HOST,[EMAIL_HOST])
 
 class RandomFactView(generics.RetrieveAPIView):
 
@@ -50,6 +58,16 @@ class PostFactView(APIView):
 			fact.save()
 
 			return Response(self.serializer_class(fact).data, status=status.HTTP_201_CREATED)
+
+class TriviaEmailView(APIView):
+
+	def post(self,request,format=None):
+		pwd = request.query_params.post('pwd', None)
+		if pwd == 'hjdgjwerifj49':
+			#category = request.query_params.post('cartegory', None)
+			send_trivia_email()
+		else:
+			break
 
 '''
 if 'uid' in serializer.data:

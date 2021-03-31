@@ -1,4 +1,5 @@
 from django.db import models
+import random
 
 def generate_unique_id():
 	length = 6
