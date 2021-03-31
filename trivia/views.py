@@ -66,8 +66,6 @@ class TriviaEmailView(APIView):
 		if pwd == 'hjdgjwerifj49':
 			#category = request.query_params.post('cartegory', None)
 			send_trivia_email()
-		else:
-			break
 
 '''
 if 'uid' in serializer.data:
