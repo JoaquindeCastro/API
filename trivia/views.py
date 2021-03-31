@@ -63,6 +63,7 @@ class TriviaEmailView(APIView):
 			#category = request.query_params.post('cartegory', None)
 			trivia = random.choice(Fact.objects.all())
 			send_mail(trivia.uid,trivia.content,settings.EMAIL_HOST,[settings.EMAIL_HOST])
+			return Response({'message':'email was sent successfully'})
 
 '''
 if 'uid' in serializer.data:
