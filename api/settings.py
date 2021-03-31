@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'users.apps.UsersConfig',
     'quotes.apps.QuotesConfig',
+    'trivia.apps.TriviaConfig',
+    'issuetracker.apps.IssuetrackerConfig'
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -98,6 +100,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+'DEFAULT_AUTHENTICATION_CLASSES': (
+    'rest_framework.authentication.BasicAuthentication',
+    'rest_framework.authentication.SessionAuthentication',
+)
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
