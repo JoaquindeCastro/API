@@ -60,7 +60,7 @@ class PostFactView(APIView):
 class TriviaEmailView(APIView):
 
 	def post(self,request,format=None):
-		pwd = request.POST.get('pwd', None)
+		pwd = request.data.get('pwd', None)
 		if pwd == 'hjdgjwerifj49':
 			#category = request.query_params.post('cartegory', None)
 			trivia = random.choice(Fact.objects.all())
