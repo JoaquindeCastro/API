@@ -64,7 +64,7 @@ class TriviaEmailView(APIView):
 		if pwd == 'hjdgjwerifj49':
 			#category = request.query_params.post('cartegory', None)
 			trivia = random.choice(Fact.objects.all())
-			send_mail(trivia.uid,trivia.content,settings.EMAIL_HOST,[settings.EMAIL_HOST])
+			send_mail(trivia.uid,trivia.content,settings.EMAIL_HOST_USER,['jgmadecastro@gmail.com'])
 			return HttpResponse('Email was sent successfully... I think...')
 		else:
 			return HttpResponse('wrong pwd')
