@@ -135,10 +135,10 @@ MEDIA_ROUTE = os.path.join(DIR_BASE, 'media')
 MEDIA_URL = '/media/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST = "smtp.zoho.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
-EMAIL_HOST = os.environ.get('EMAIL_ADDRESS')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
-DEFAULT_FROM_EMAIL = EMAIL_HOST
+EMAIL_HOST_USER = 'noreply@themindreform.com'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
