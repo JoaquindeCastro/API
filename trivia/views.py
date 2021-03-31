@@ -35,3 +35,27 @@ class RandomQuestionView(generics.RetrieveAPIView):
 			return None
 
 		return query
+
+class PostFactView(APIView):
+
+	serializer_class = FactSerializer
+
+	def post(self, request, format=None):
+		serializer = self.serializer_class(data=request.data)
+		if serializer.is_valid():
+			content = serializer.data.get('content')
+			category = serializer.data.get('category',None)
+			tags = serializer.data.get('tags',None)
+			fact = Fact.objects.create(content=content,category=category,tags=tags)
+			fact.save()
+
+			return Response(self.serializer_class(fact).data, status=status.HTTP_201_CREATED)
+
+'''
+if 'uid' in serializer.data:
+	update_fields = []
+	uid = serializer.data.get('uid')
+	fact = Fact.objects.get(uid=uid)
+	
+	fact.save(update_fields=update_fields)
+'''
