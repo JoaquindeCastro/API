@@ -27,7 +27,7 @@ class Assign(APIView):
 		}
 		'''
 		mentors = request.GET.get('mentors')
-		mentees = request.GEt.get('mentees')
+		mentees = request.GET.get('mentees')
 		if mentors != None and mentees != None:
 			if len(mentors) == len(mentees):
 				preferences = []
