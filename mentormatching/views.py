@@ -39,3 +39,4 @@ class Assign(APIView):
 					preferences.append(mentor_matches)
 				matrix = np.array(pd.DataFrame(preferences))
 				return Response(matrix,status=status.HTTP_200_OK)
+		return Response(matrix,status=status.HTTP_400)
