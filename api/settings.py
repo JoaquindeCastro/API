@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'quotes.apps.QuotesConfig',
     'trivia.apps.TriviaConfig',
+    'dashboard.apps.DashboardConfig',
     'issuetracker.apps.IssuetrackerConfig'
 ]
 
