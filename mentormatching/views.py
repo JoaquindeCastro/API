@@ -26,15 +26,16 @@ class Assign(APIView):
 		name: [xx,xx,...] (llength = length of fields)
 		}
 		'''
-		preferences = []
 		mentors = request.GET.get('mentors')
 		mentees = request.GEt.get('mentees')
 		if mentors != None and mentees != None:
 			if len(mentors) == len(mentees):
+				preferences = []
 				for mentee_name,mentee_fields in mentees.items():
 					mentor_matches = {}
 					for mentor_name, mentor_fields in mentors.items():
 						s = score(mentor_fields,mentee_fields)
 						mentor_matches[mentor_name] = s
 					preferences.append(mentor_matches)
-		matrix = np.array(pd.DataFrame(preferences))
+				matrix = np.array(pd.DataFrame(preferences))
+				return Response(matrix,status=status.HTTP_200_OK)
