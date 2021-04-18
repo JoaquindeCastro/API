@@ -8,4 +8,5 @@ urlpatterns = [
     path('quotes/',include('quotes.urls')),
     path('trivia/',include('trivia.urls')),
     path('issuetracker/',include('issuetracker.urls')),
+    path('mentormatching/',include('mentormatching.urls'))
 ]
