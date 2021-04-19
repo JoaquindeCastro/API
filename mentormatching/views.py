@@ -27,16 +27,16 @@ class Assign(APIView):
 		}
 		'''
 		data = {
-		"mentors": {
-		"1":[24,35,75],
-		"2":[54,76,94],
-		"3":[4,67,34]
-		},
-		"mentees":{
-		"1":[24,35,75],
-		"2":[54,76,94],
-		"3":[4,67,34]
-		}
+			"mentors": {
+			"1":[24,35,75],
+			"2":[54,76,94],
+			"3":[4,67,34]
+			},
+			"mentees":{
+			"1":[24,35,75],
+			"2":[54,76,94],
+			"3":[4,67,34]
+		}}
 		mentors = data['mentors']
 		mentees = data['mentees']
 		if mentors != None and mentees != None:
