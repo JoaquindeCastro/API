@@ -28,14 +28,13 @@ class Assign(APIView):
 		'''
 		mentors = request.POST.get('mentors')
 		mentees = request.POST.get('mentees')
-		if mentors != None and mentees != None:
-			preferences = []
-			for mentee_name,mentee_fields in mentees.items():
-				mentor_matches = {}
-				for mentor_name, mentor_fields in mentors.items():
-					s = score(mentor_fields,mentee_fields)
-					mentor_matches[mentor_name] = s
-				preferences.append(mentor_matches)
-			matrix = np.array(pd.DataFrame(preferences))
-			return Response(matrix,status=status.HTTP_200_OK)
+		preferences = []
+		for mentee_name,mentee_fields in mentees.items():
+			mentor_matches = {}
+			for mentor_name, mentor_fields in mentors.items():
+				s = score(mentor_fields,mentee_fields)
+				mentor_matches[mentor_name] = s
+			preferences.append(mentor_matches)
+		matrix = np.array(pd.DataFrame(preferences))
+		return Response(matrix,status=status.HTTP_200_OK)
 		return Response(mentors,status=status.HTTP_400_BAD_REQUEST)
