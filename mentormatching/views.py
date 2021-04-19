@@ -13,7 +13,7 @@ def score(mentor, mentee):
 
 class Assign(APIView):
 
-	def get(self,request,format=None):
+	def post(self,request,format=None):
 		'''
 		Data Format ->
 		Fields: ['field1','field2'...]
@@ -26,8 +26,8 @@ class Assign(APIView):
 		name: [xx,xx,...] (llength = length of fields)
 		}
 		'''
-		mentors = request.GET.get('mentors')
-		mentees = request.GET.get('mentees')
+		mentors = request.POST.get('mentors')
+		mentees = request.POST.get('mentees')
 		if mentors != None and mentees != None:
 			if len(mentors) == len(mentees):
 				preferences = []
