@@ -26,19 +26,8 @@ class Assign(APIView):
 		name: [xx,xx,...] (llength = length of fields)
 		}
 		'''
-		data = {
-			"mentors": {
-			"1":[24,35,75],
-			"2":[54,76,94],
-			"3":[4,67,34]
-			},
-			"mentees":{
-			"1":[24,35,75],
-			"2":[54,76,94],
-			"3":[4,67,34]
-		}}
-		mentors = data['mentors']
-		mentees = data['mentees']
+		mentors = request.GET.get('mentors')
+		mentees = request.GET.get('mentees')
 		if mentors != None and mentees != None:
 			if len(mentors) == len(mentees):
 				preferences = []
