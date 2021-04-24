@@ -11,6 +11,7 @@ django-ckeditor==6.0.0
 django-crispy-forms==1.9.2
 django-rest-framework==0.1.0
 djangorestframework==3.12.2
+django-cors-headers==3.7.0
 django-googledrive-storage==1.5.2
 django-heroku==0.3.1
 django-js-asset==1.2.2
